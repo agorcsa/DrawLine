@@ -3,8 +3,11 @@ package com.example.drawline;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -24,62 +27,13 @@ public class MainActivity extends AppCompatActivity {
 
     int tag;
 
+    MyCanvas myCanvas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        imageView0 = findViewById(R.id.image_0);
-        imageView1 = findViewById(R.id.image_1);
-        imageView2 = findViewById(R.id.image_2);
-        imageView3 = findViewById(R.id.image_3);
-        imageView4 = findViewById(R.id.image_4);
-        imageView5 = findViewById(R.id.image_5);
-        imageView6 = findViewById(R.id.image_6);
-        imageView7 = findViewById(R.id.image_7);
-        imageView8 = findViewById(R.id.image_8);
-
-        horizontalLine = findViewById(R.id.horizontal_line);
+        myCanvas = new MyCanvas(this);
+        setContentView(myCanvas);
     }
 
-    public void dropIn(View view) {
-
-        ImageView sphere = (ImageView) view;
-
-        sphere.setTranslationY(-1000f);
-
-        sphere.animate().translationYBy(1000f).setDuration(300);
-
-        sphere.setImageResource(R.drawable.red_sphere);
-
-        sphereDropped = 1;
-
-        view.setClickable(false);
-
-        tag = Integer.parseInt((String) sphere.getTag());
-
-        imageArray.set(tag,sphereDropped);
-
-        drawLine(sphere);
-    }
-
-    public void drawLine(View view) {
-
-       if (imageArray.get(3) == 1 && imageArray.get(4) == 1 && imageArray.get(5) == 1) {
-          setLineRotation(0);
-        }
-
-       else if(imageArray.get(2) == 1 && imageArray.get(4) == 1 && imageArray.get(6) == 1) {
-           setLineRotation(135);
-       }
-
-       else if(imageArray.get(0) == 1 && imageArray.get(4) == 1 && imageArray.get(8) == 1) {
-           setLineRotation(45);
-       }
-    }
-
-    public void setLineRotation(float rotation){
-            horizontalLine.setRotation(rotation);
-            horizontalLine.setVisibility(View.VISIBLE);
-        }
-    }
+}

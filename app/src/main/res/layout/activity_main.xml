@@ -7,17 +7,12 @@
     android:background="@color/colorAccent"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true">
-
     <GridLayout
         android:id="@+id/grid_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_centerInParent="true">
 
         <ImageView
             android:id="@+id/image_0"
@@ -99,16 +94,5 @@
             android:onClick="dropIn"
             android:tag="8" />
     </GridLayout>
-
-    <View
-        android:id="@+id/horizontal_line"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginTop="85dp"
-        android:visibility="invisible"
-        android:tag="0" />
-
-    </FrameLayout>
 
 </RelativeLayout>
