@@ -65,22 +65,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void drawLine(View view) {
 
-       if (imageArray.get(0) == 1 && imageArray.get(1) == 1 && imageArray.get(2) == 1) {
-           Toast.makeText(getApplicationContext(), "Draw a line on row 1", Toast.LENGTH_SHORT).show();
-           horizontalLine.setVisibility(View.VISIBLE);
+       if (imageArray.get(3) == 1 && imageArray.get(4) == 1 && imageArray.get(5) == 1) {
+          setLineRotation(0);
         }
 
        else if(imageArray.get(2) == 1 && imageArray.get(4) == 1 && imageArray.get(6) == 1) {
-           Toast.makeText(getApplicationContext(), "Draw a line on diagonal from left to the right", Toast.LENGTH_SHORT).show();
-           horizontalLine.setRotation(135);
-           horizontalLine.setVisibility(View.VISIBLE);
+           setLineRotation(135);
+       }
+
+       else if(imageArray.get(0) == 1 && imageArray.get(4) == 1 && imageArray.get(8) == 1) {
+           setLineRotation(45);
        }
     }
 
-    public void setWinningLineRotation(float rotation){
-        if (imageArray.get(0) == 1 && imageArray.get(1) == 1 && imageArray.get(2) == 1) {
+    public void setLineRotation(float rotation){
             horizontalLine.setRotation(rotation);
             horizontalLine.setVisibility(View.VISIBLE);
         }
     }
-}
